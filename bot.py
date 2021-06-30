@@ -39,6 +39,7 @@ def processRequest(req):
         doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
         doc = doc_ref.get().to_dict()
         print(doc)
+        print(doc)
 
         fullname = doc['fullname']
         speech = f'ชื่อเต็มคือ {fullname} '
