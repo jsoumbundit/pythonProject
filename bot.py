@@ -34,7 +34,7 @@ def processRequest(req):
     # Accessing the fields on the POST request boduy of API.ai invocation of the webhook
     intent = req_dict["queryResult"]["intent"]["displayName"]
 
-    if intent == 'แนะนำตัวเองหน่อย':
+    if intent == 'แนะนำตัวเองหน่อยครับ':
 
         doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
         doc = doc_ref.get().to_dict()
