@@ -16,6 +16,7 @@ db = firestore.client()
 # Flask app should start in global layout
 app = Flask(__name__)
 
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
 
@@ -26,12 +27,13 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+
 def processRequest(req):
 
     # Parsing the POST request body into a dictionary for easy access.
     req_dict = json.loads(request.data)
 
-    # Accessing the fields on the POST request boduy of API.ai invocation of the webhook
+    # Accessing the fields on the POST request body of API.ai invocation of the webhook
     intent = req_dict["queryResult"]["intent"]["displayName"]
 
     if intent == 'แนะนำตัวเองหน่อยครับ':
@@ -50,6 +52,7 @@ def processRequest(req):
     res = makeWebhookResult(speech)
 
     return res
+
 
 def makeWebhookResult(speech):
 
