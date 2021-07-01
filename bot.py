@@ -40,7 +40,6 @@ def processRequest(req):
         doc = doc_ref.get().to_dict()
         print(doc)
 
-
         fullname = doc['fullname']
         speech = f'ชื่อเต็มคือ {fullname} '
 
