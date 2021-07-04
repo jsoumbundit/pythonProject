@@ -9,9 +9,9 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate("it-law-goku-firebase-adminsdk-z9vu2-0d1cfe95fd.json")
-firebase_admin.initialize_app(cred)
-db = firestore.client()
+#cred = credentials.Certificate("it-law-goku-firebase-adminsdk-z9vu2-0d1cfe95fd.json")
+#firebase_admin.initialize_app(cred)
+#db = firestore.client()
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -38,12 +38,13 @@ def processRequest(req):
 
     if intent == 'แนะนำตัวเองหน่อยครับ':
 
-        doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
-        doc = doc_ref.get().to_dict()
-        print(doc)
+        #doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
+        #doc = doc_ref.get().to_dict()
+        #print(doc)
 
-        fullname = doc['fullname']
-        speech = f'ชื่อเต็มคือ {fullname} '
+        #fullname = doc['fullname']
+        #speech = f'ชื่อเต็มคือ {fullname} '
+        speech = "ได้เลย จัดให้!"
 
     else:
 
