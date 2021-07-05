@@ -1,69 +1,11 @@
-import json
-import os
 
 from flask import Flask
-from flask import request
-from flask import make_response
 
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-
-#cred = credentials.Certificate("it-law-goku-firebase-adminsdk-z9vu2-0d1cfe95fd.json")
-#firebase_admin.initialize_app(cred)
-#db = firestore.client()
-
-# Flask app should start in global layout
 app = Flask(__name__)
+@app.route("/")
 
+def hello():
+    return "Hello World!"
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-
-    req = request.get_json(silent=True, force=True)
-    res = processRequest(req)
-    res = json.dumps(res, indent=4)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
-
-
-def processRequest(req):
-
-    # Parsing the POST request body into a dictionary for easy access.
-    req_dict = json.loads(request.data)
-
-    # Accessing the fields on the POST request body of API.ai invocation of the webhook
-    intent = req_dict["queryResult"]["intent"]["displayName"]
-
-    if intent == 'แนะนำตัวเองหน่อยครับ':
-
-        #doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
-        #doc = doc_ref.get().to_dict()
-        #print(doc)
-
-        #fullname = doc['fullname']
-        #speech = f'ชื่อเต็มคือ {fullname} '
-        speech = "ได้เลย จัดให้!"
-
-    else:
-
-        speech = "ผมไม่เข้าใจ คุณต้องการอะไร"
-
-    res = makeWebhookResult(speech)
-
-    return res
-
-
-def makeWebhookResult(speech):
-
-    return {
-  "fulfillmentText": speech
-    }
-
-if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-
-    print("Starting app on port %d" % port)
-
-    app.run(debug=False, port=port, host='0.0.0.0', threaded=True)
+if __name__ == "__main__":
+    app.run()
