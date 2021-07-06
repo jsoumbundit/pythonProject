@@ -29,7 +29,7 @@ def processRequest(req):
     if intent == 'บอกเรื่องของคุณหน่อย':
         speech = "สุดจัด ปลัดบอก!"
     else:
-        speech = "ผมไม่เข้าใจ คุณต้องการอะไร"
+        speech = "ผมไม่่เข้าใจ"
 
     res = makeWebhookResult(speech)
 
