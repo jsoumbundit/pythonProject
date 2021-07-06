@@ -27,11 +27,8 @@ def processRequest(req):
     intent = req_dict["queryResult"]["intent"]["displayName"]
 
     if intent == 'บอกเรื่องของคุณหน่อย':
-
         speech = intent + " ได้เลย จัดให้!"
-
     else:
-
         speech = "ผมไม่เข้าใจ คุณต้องการอะไร"
 
     res = makeWebhookResult(speech)
