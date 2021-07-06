@@ -28,7 +28,7 @@ def processRequest(req):
 
     if intent == 'บอกเรื่องของคุณหน่อย':
 
-        speech = "ได้เลย จัดให้!"
+        speech = intent + " ได้เลย จัดให้!"
 
     else:
 
