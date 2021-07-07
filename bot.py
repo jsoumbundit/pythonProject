@@ -41,7 +41,7 @@ def processRequest(req):
         print(doc)
 
         fullname = doc['fullname']
-        speech = f'ตอนนี้มีเรื่อง {fullname}'
+        speech = f'ผมคือ {fullname}'
 
     else:
 
