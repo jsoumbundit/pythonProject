@@ -26,7 +26,8 @@ def processRequest(req):
     # Accessing the fields on the POST request body of API.ai invocation of the webhook
 
     intent = req_dict["queryResult"]["intent"]["displayName"]
-    print(f"INTENT = {intent}")
+    if type(intent) != str:
+        intent = " "
 
     if intent == 'บอกเรื่องของคุณหน่อย':
         speech = "สุดจัด ปลัดบอก!"
