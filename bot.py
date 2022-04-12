@@ -44,7 +44,7 @@ def processRequest(req):
         doc_ref = db.collection(u'com_sec2').document(u'Ij7admiuXYbuZcyeTW6e')
         doc = doc_ref.get().to_dict()
         description = doc['desp']
-        speech = f'เป็น {description}'
+        speech = f'เป็น {description}'.replace('\\n','\n')
 
     else:
         speech = "ผมไม่เข้าใจ คุณต้องการอะไร"
