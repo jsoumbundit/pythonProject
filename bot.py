@@ -41,8 +41,12 @@ def processRequest(req):
         fullname = doc['fullname']
         speech = f'เป็น {fullname}'
 
-
-
+    elif intent == 'com_sec2':
+        doc_ref = db.collection(u'com_sec2').document(u'Ij7admiuXYbuZcyeTW6e')
+        doc = doc_ref.get().to_dict()
+        print(doc)
+        description = doc['desp']
+        speech = f'เป็น {description}'
 
     else:
 
