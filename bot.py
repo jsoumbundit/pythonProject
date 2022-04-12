@@ -31,7 +31,6 @@ def processRequest(req):
     # Parsing the POST request body into a dictionary for easy access.
     req_dict = json.loads(request.data)
 
-
     # Accessing the fields on the POST request body of API.ai invocation of the webhook
     intent = req_dict["queryResult"]["intent"]["displayName"]
 
