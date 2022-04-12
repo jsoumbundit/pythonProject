@@ -37,19 +37,16 @@ def processRequest(req):
     if intent == 'แนะนำตัว':
         doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
         doc = doc_ref.get().to_dict()
-        print(doc)
         fullname = doc['fullname']
         speech = f'เป็น {fullname}'
 
     elif intent == 'com_sec2':
         doc_ref = db.collection(u'com_sec2').document(u'Ij7admiuXYbuZcyeTW6e')
         doc = doc_ref.get().to_dict()
-        print(doc)
         description = doc['desp']
-        speech = f'เป็น {description}'
+        speech = f'เป็น {description}'.replace('\\n','\n')
 
     else:
-
         speech = "ผมไม่เข้าใจ คุณต้องการอะไร"
 
     res = makeWebhookResult(speech)
