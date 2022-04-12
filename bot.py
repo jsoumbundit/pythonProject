@@ -41,9 +41,9 @@ def processRequest(req):
         speech = f'เป็น {fullname}'
 
     else :
-        doc_ref = db.collection(intent).document(u'detail')
+        doc_ref = db.collection(u'cybercrime').document(intent)
         doc = doc_ref.get().to_dict()
-        description = doc['desp']
+        description = doc['detail']
         speech = f'{description}'.replace('\\n','\n')
 
     #else:
