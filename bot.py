@@ -35,13 +35,14 @@ def processRequest(req):
     # Accessing the fields on the POST request body of API.ai invocation of the webhook
     intent = req_dict["queryResult"]["intent"]["displayName"]
     if intent == 'แนะนำตัว':
-
         doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
         doc = doc_ref.get().to_dict()
         print(doc)
-
         fullname = doc['fullname']
-        speech = f'ผมคือ {fullname}'
+        speech = f'เป็น {fullname}'
+
+
+
 
     else:
 
