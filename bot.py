@@ -38,7 +38,7 @@ def processRequest(req):
         doc_ref = db.collection(u'introduces').document(u'6oQu4KBGqxB0puXBMLa6')
         doc = doc_ref.get().to_dict()
         fullname = doc['fullname']
-        speech = f'{fullname}'.replace('\\n','\n')
+        speech = fเป็น'{fullname}'.replace('\\n','\n')
 
     else :
         doc_ref = db.collection(u'cybercrime').document(intent)
